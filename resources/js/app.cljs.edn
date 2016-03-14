@@ -1,3 +1,3 @@
 {:require  [test-not-found.app]
  :init-fns [test-not-found.app/init]
- :compiler-options {:asset-path "js/app.out"}}
+ :compiler-options {:asset-path "/js/app.out"}}
