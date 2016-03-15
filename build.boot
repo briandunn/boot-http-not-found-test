@@ -1,10 +1,9 @@
 (set-env!
-  :source-paths #{"src/clj" "src/cljs"}
+  :source-paths #{"src/clj" "src/cljs" "/Users/brian/src/boot-http/src"}
   :resource-paths #{"resources"}
   :dependencies '[[adzerk/boot-cljs "1.7.48-6" :scope "test"]
                   [adzerk/boot-cljs-repl "0.2.0" :scope "test"]
                   [adzerk/boot-reload "0.4.1" :scope "test"]
-                  [pandeiro/boot-http        "0.7.3"      :scope "test"]
                   [org.clojure/clojurescript "1.7.122"]
                   [reagent "0.5.0"]
                   [ring "1.4.0"]])
@@ -23,7 +22,7 @@
     ))
 
 (deftask run []
-  (comp (serve :port 7777 :not-found 'notfound.core/not-found-handler)
+  (comp (serve :port 7777 :dir "target" :not-found 'notfound.core/not-found-handler)
     (watch)
     (cljs-repl)
     (reload)
